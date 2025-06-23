@@ -1,15 +1,37 @@
-# Bot - Backup automatico e envio por email
-Data: 27-12-2023
-Creditos: 0xff
-Last update: 29-12-2023
+# ZeroTouchBackup
 
-## Ficha técnica
-    Sistema base: gnu/linux
-    Aplicativo base: postgresql
+Backup automático de bancos de dados PostgreSQL com envio por email — totalmente autônomo, multiplataforma e leve.
 
-## Instalação
-    Certifique de ter o python instalado (v3)
-    Instale o serviço bot.service no systemd e habilita-o
-    Faça os ajuste de acordo com as configurações local (ip, email, senha, etc)
-    directorio onde o programa deve estar /opt
-    De permissão de execução ao script (com uma conta privilegiada)
+---
+
+## Visão Geral
+
+**ZeroTouchBackup** foi criado para automatizar o processo diário de backup de bancos de dados PostgreSQL, eliminando tarefas manuais.  
+Funciona como serviço no **Linux** (`systemd`) e também no **Windows** (via `pywin32`).
+
+---
+
+## Funcionalidades
+
+- Executa como serviço de sistema (Linux/Windows)
+- Envia backups por email com autenticação segura (TLS)
+- Mantém log de eventos e controle de arquivos enviados
+- Resistente a falhas (reinício automático no Linux)
+
+---
+
+## Instalação (Linux)
+
+```bash
+# Requisitos: Python 3.x instalado
+
+# Copie para /opt
+sudo cp -r ZeroTouchBackup /opt/bot
+
+# Permissões
+sudo chmod +x /opt/bot/sendermail.py
+
+# Ative o serviço systemd
+sudo cp /opt/bot/bot.service /etc/systemd/system/
+sudo systemctl daemon-reexec
+sudo systemctl enable --now bot.service
