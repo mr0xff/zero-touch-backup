@@ -1,0 +1,12 @@
+[Unit]
+Description=Bot de Backup Automático - PostgresSQL
+After=network.target 
+
+[Service]
+ExecStart=/opt/bot/main.py
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=bot.service
