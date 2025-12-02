@@ -9,5 +9,3 @@ def get_current_datetime():
     "date": date.today().isoformat(),
     "time": ':'.join([str(datetime.tm_hour), str(datetime.tm_min)])
   }
-
-  print(datetime)

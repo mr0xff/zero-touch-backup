@@ -1,4 +1,4 @@
-from utils.system_timer import get_current_datetime
+from utils.system_timer import get_current_datetime as getcd
 
 class LogModule: 
   def __init__(self, filename, stdout = True): 
@@ -32,12 +32,16 @@ class MessageLog:
   def __init__(self, message):
     self.mesage = message
 
-  def info(self):
-    return f"[][info] {self.mesage}"
+  def info(self, def_label = "info"):
+    dt = getcd()
+    return f"[{dt["date"]} {dt["time"]}] [{def_label}] {self.mesage}"
   
-  def warn(self):
-    return f"[warn] {self.mesage}"
+  def warn(self, def_label = "warn"):
+    dt = getcd()
+    return f"[{dt["date"]} {dt["time"]}] [{def_label}] {self.mesage}"
 
-  def error(self):
-    return f"[error] {self.mesage}"
+  def error(self, def_label = "error"):
+    dt = getcd()
+    return f"[{dt["date"]} {dt["time"]}] [{def_label}] {self.mesage}"
+  
 
