@@ -1,5 +1,5 @@
-from utls.logmod import LodModule
+from utls.logmod import LogModule
 
 if __name__ == "__main__":
-  a = LodModule("log.txt")
+  a = LogModule("log.txt")
   
