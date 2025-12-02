@@ -1,5 +1,6 @@
-class LogModule: 
+from utils.system_timer import get_current_datetime
 
+class LogModule: 
   def __init__(self, filename, stdout = True): 
     self.filename = filename
     self.stdout = stdout
@@ -32,11 +33,11 @@ class MessageLog:
     self.mesage = message
 
   def info(self):
-    return f"[info] {self.mesage}"
+    return f"[][info] {self.mesage}"
   
   def warn(self):
     return f"[warn] {self.mesage}"
 
   def error(self):
-    return f"[error] {self.mesage}"  
+    return f"[error] {self.mesage}"
 
